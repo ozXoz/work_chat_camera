@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      h1 {
+        margin-top: 50px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 60%;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
+      input[type="submit"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: cornflowerblue;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: deepskyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sign In</h1>
+      <form action="">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>

@@ -14,7 +14,7 @@ const Msg =require('./public/utils/UserDb');
 mongoose.connect("mongodb+srv://test:test@cluster0.t0kjdo0.mongodb.net/testApp?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true
-}), (error) => {
+}),(error) => {
     if (error) {
       console.error(error);
     } else {

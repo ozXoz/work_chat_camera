@@ -41,8 +41,7 @@ io.on('connection', socket => {
   // Save Data
   socket.on('chatMessage', msg => {
     const user = getCurrentUser(socket.id);
-    const userGetName=user.username;
-    const message=new Msg({msg,userGetName})
+    const message=new Msg({msg})
     message.save();
     if (!user) {
       return;

@@ -10,11 +10,17 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 // Database Connection
-const Msg =require('./public/utils/UserDb');
+
 mongoose.connect("mongodb+srv://test:test@cluster0.t0kjdo0.mongodb.net/testApp?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true
-})
+}, (error) => {
+  if (error) {
+    console.error('Error connecting to MongoDB:', error);
+  } else {
+    console.log('Successfully connected to MongoDB');
+  }
+});
 app.use(express.static(path.join(__dirname, 'public')));
 const botName = 'Welcome to Our Web Chat ! this is virtual writing in hereee';
 

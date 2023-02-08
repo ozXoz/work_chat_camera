@@ -14,7 +14,13 @@ const Msg =require('./public/utils/UserDb');
 mongoose.connect("mongodb+srv://test:test@cluster0.t0kjdo0.mongodb.net/testApp?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true
-})
+}), (error) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log("MongoDB connected successfully.");
+    }
+});
 app.use(express.static(path.join(__dirname, 'public')));
 const botName = 'Welcome to Our Web Chat ! this is virtual writing in hereee';
 

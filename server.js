@@ -1,4 +1,5 @@
 const path = require('path');
+const mongoose= require('mongoose');
 const express = require('express');
 const http = require('http');
 const app = express();
@@ -8,17 +9,22 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./public/
 const server = http.createServer(app);
 const io = socketio(server);
 
+// Database Connection
+const Msg =require('./public/utils/UserDb');
+mongoose.connect("mongodb+srv://test:test@cluster0.t0kjdo0.mongodb.net/testApp?retryWrites=true&w=majority",{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 app.use(express.static(path.join(__dirname, 'public')));
 const botName = 'Welcome to Our Web Chat ! this is virtual writing in hereee';
-// Run when client connect
 
+// Run when client connect
 io.on('connection', socket => {
   socket.on('joinRoom', ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
     if (!user) {
       return;
     }
-
     socket.join(user.room);
     socket.emit('message', formatMessage(botName, '~~~~~ Welcome~~~~~~~'))
     socket.broadcast.to(user.room)
@@ -32,8 +38,12 @@ io.on('connection', socket => {
   });
 
   // listen for chatMessage
+  // Save Data
   socket.on('chatMessage', msg => {
     const user = getCurrentUser(socket.id);
+    const userGetName=user.username;
+    const message=new Msg({msg,userGetName})
+    message.save();
     if (!user) {
       return;
     }

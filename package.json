@@ -13,6 +13,8 @@
   "dependencies": {
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "moment": "^2.29.4",
     "mongoose": "^6.9.1",
     "socket.io": "^4.6.0"
@@ -20,5 +22,13 @@
   "devDependencies": {
     "install": "^0.13.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozXoz/chat_app_update.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ozXoz/chat_app_update/issues"
+  },
+  "homepage": "https://github.com/ozXoz/chat_app_update#readme"
 }

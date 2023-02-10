@@ -8,6 +8,9 @@ const formatMessage = require('./public/utils/messages');
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./public/utils/users');
 const server = http.createServer(app);
 const io = socketio(server);
+const Msg = require('./public/utils/UserDb');
+
+const fs = require("fs"); // Camera
 
 // Database Connection
 
@@ -53,6 +56,7 @@ io.on('connection', socket => {
       return;
     }
     io.to(user.room).emit('message', formatMessage(user.username, msg))
+   
   });
 
   
@@ -83,3 +87,12 @@ socket.on('disconnect', () => {
 const PORT = 3333 || process.env.PORT;
 
 server.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+
+
+// Camera 
+http
+  .createServer(function(req, res) {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.end(fs.readFileSync("index.html"));
+  })
+  

@@ -12,7 +12,7 @@ let peerConnection; // connection
 
 const servers={
     iceServers:[{
-        urls:['stun:stun1.1.google.com:19302','stun:stun2.1.google.com:19303']
+        urls:['stun:stun1.1.google.com:19302','stun:stun2.1.google.com:19302']
     }]
 }
  // Ask for permission to acces your video and voice able to test !

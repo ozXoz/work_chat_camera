@@ -9,11 +9,9 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./public/
 const server = http.createServer(app);
 const io = socketio(server);
 const Msg = require('./public/utils/UserDb');
-
 const fs = require("fs"); // Camera
 
 // Database Connection
-
 mongoose.connect("mongodb+srv://test:test@cluster0.t0kjdo0.mongodb.net/testApp?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -24,8 +22,17 @@ mongoose.connect("mongodb+srv://test:test@cluster0.t0kjdo0.mongodb.net/testApp?r
     console.log('Successfully connected to MongoDB');
   }
 });
+
+
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 const botName = 'Welcome to Our Web Chat ! this is virtual writing in hereee';
+
+
+
+
 
 // Run when client connect
 io.on('connection', socket => {
@@ -60,6 +67,7 @@ io.on('connection', socket => {
   });
 
   
+  //// Disconnection //////
 
 socket.on('disconnect', () => {
   const user = userLeave(socket.id);
@@ -93,6 +101,12 @@ server.listen(PORT, () => console.log(`server is running on port ${PORT}`));
 http
   .createServer(function(req, res) {
     res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(fs.readFileSync("index.html"));
+    res.end(fs.readFileSync("chat.html"));
   })
+  
+
+
+  /// VIDEO 
+
+
   

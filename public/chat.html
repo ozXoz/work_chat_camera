@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css">
-  <script>
+  <link rel="stylesheet" href="css/../webcam_publish/main.css">
+
+
+
+  <!-- <script>
     async function getCamera() {
       const constraints = { video: true, audio: false };
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -15,11 +19,32 @@
         video.play();
       };
     }
-  </script>
+  </script> -->
+
+
+
+  
+
+
   <title> App</title>
 </head>
-<body onload="getCamera()">
-  <video width="600" height="200"></video>
+
+<body> 
+  <!-- <video width="600" height="200"></video> -->
+
+  <div id="videos">
+
+    <video class="video-player" id="user-1" autoplay playsinline></video>
+    <video class="video-player" id="user-2" autoplay playsinline></video>
+    
+        </div>
+        <script>
+            console.log("Test")
+        </script>
+        <script src="./webcam_publish/agora-rtm-sdk-1.5.1.js"></script>
+
+        <script src="main.js"></script>
+</body>
   <div class="chat-container">
     <header class="chat-header">
       <h1><i class="fas fa-smile"></i> Free To Talk And Meet Up !</h1>
@@ -50,6 +75,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js" integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/main.js"></script>
+  <script src="./webcam_publish/agora-rtm-sdk-1.5.1.js"></script>
+  <script src="js/../webcam_publish/main.js"></script>
+
+
 </body>
 </html>
 

@@ -188,3 +188,20 @@ a {
 		display: none;
 	}
 }
+
+
+
+
+
+
+#videos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:2em;
+}
+
+.video-player{
+    background-color: black;
+    height: 300px;
+    width: 100%;
+}
